@@ -5,21 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 <body>
     <div class="navbar bg-primary navbar-dark navbar-expand">
         <div class="container">
-            <a href="#" class="navbar-brand">App</a>
+            <a href="#" class="navbar-brand">
+                <i class="fa-solid fa-camera me-2"></i>
+                App
+            </a>
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">Home</a>
+                    <a href="#" class="nav-link active">
+                        <i class="fa-solid fa-home me-1"></i>
+                        Home
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">About</a>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-user-circle me-1"></i>
+                        About
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-envelope me-1"></i>
+                        Contact
+                    </a>
                 </li>
             </ul>
         </div>
@@ -29,13 +44,27 @@
 
         <ul class="nav nav-tabs my-4">
             <li class="nav-item">
-                <a href="#" class="nav-link active">Users</a>
+                <a href="#" class="nav-link active">
+                    <i class="fa-solid fa-users me-1"></i>
+                    Users <span class="ms-2 badge bg-danger rounded-pill">10</span>
+                </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Issues</a>
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-flag me-1"></i>
+                    Issues
+                </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Settings</a>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown">
+                    <i class="fa-solid fa-cog me-1"></i>
+                    Settings
+                </a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Themes</a>
+                    <a href="#" class="dropdown-item">Account</a>
+                </div>
             </li>
         </ul>
 
