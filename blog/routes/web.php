@@ -1,15 +1,14 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
-Route::get('/articles', function() {
-    return "Article Route";
-});
+Route::get('/articles', [ArticleController::class, 'index']);
+Route::get('/articles/detail/{id}', [ArticleController::class, 'detail']);
+Route::get('/articles/delete/{id}', [ArticleController::class, 'delete']);
+Route::get('/', [ArticleController::class, 'index']);
 
-Route::get('/articles/detail/{id}', function ($id) {
-    return "Article Detail Route - $id";
-});
+Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
