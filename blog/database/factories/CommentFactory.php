@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\Article;
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Article>
+ * @extends Factory<Comment>
  */
-class ArticleFactory extends Factory
+class CommentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +18,8 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(),
-            'body' => $this->faker->paragraph(),
-            'category_id' => rand(1, 5),
+            'content' => $this->faker->paragraph(),
+            'article_id' => rand(1, 20),
             'user_id' => rand(1, 2),
         ];
     }

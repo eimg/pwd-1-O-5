@@ -17,6 +17,9 @@
                         {{ $article->title }}
                     </h3>
                     <div class="text-muted">
+                        <b class="text-success">{{ $article->user->name }}</b>,
+                        <b>Category: </b> {{ $article->category->name }},
+                        <b>Comments: </b> {{ count($article->comments) }},
                         {{ $article->created_at }}
                     </div>
                     <p>
