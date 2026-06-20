@@ -25,8 +25,13 @@
 
     <script>
         const api = "http://localhost:8000/api/categories";
+        const token = "5|eUOKyeBaNpvegfqSMTkNN143xLjKe8TQTnmjMhUad0c47268";
 
-        fetch(api)
+        fetch(api, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            }
+        })
             .then(res => res.json())
             .then(data => data.map(item => createItem(item)));
 
@@ -41,6 +46,7 @@
                 body: JSON.stringify({ name }),
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
                 },
             })
             .then(res => res.json())
@@ -58,7 +64,13 @@
             del.setAttribute("href", "#");
             del.classList.add("fa-solid", "fa-trash", "text-danger", "float-end");
             del.onclick = () => {
-                fetch(`${api}/${item.id}`, { method: "DELETE" });
+                fetch(`${api}/${item.id}`, { 
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    }
+                });
+
                 li.remove();
             }
             li.appendChild(del);

@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-    <div class="container" style="max-width: 600px">
+    <div class="container article-detail-container">
 
         @if(session("info"))
             <div class="alert alert-info">
@@ -9,27 +9,27 @@
             </div>
         @endif
 
-        <div class="card mb-2 border-primary">
+        <article class="card article-card article-detail-card mb-3 border-primary">
+            <img src="{{ $article->featureImageUrl() }}" alt="{{ $article->title }}" class="card-img-top article-card-image">
             <div class="card-body">
-                <h3 class="card-title">
-                    {{ $article->title }}
-                </h3>
-                <div class="text-muted">
-                    <b class="text-success">{{ $article->user->name }}</b>,
-                    <b>Category: </b> {{ $article->category->name }},
+                <h1 class="card-title article-detail-title">{{ $article->title }}</h1>
+                <div class="article-meta">
+                    <a href="{{ url("/users/{$article->user->id}") }}" class="text-success fw-bold text-decoration-none">{{ $article->user->name }}</a>,
+                    <b>Category: </b> <a href="{{ url("/categories/{$article->category->id}") }}" class="text-decoration-none">{{ $article->category->name }}</a>,
                     {{ $article->created_at->diffForHumans() }}
                 </div>
-                <p>
-                    {{ $article->body }}
-                </p>
+                <div class="markdown-body article-body">
+                    {!! $article->bodyHtml() !!}
+                </div>
 
                 @can("delete-article", $article)
+                    <a href="{{ url("/articles/edit/$article->id") }}" class="btn btn-sm btn-outline-primary">Edit</a>
                     <a href="{{ url("/articles/delete/$article->id") }}"        class="btn btn-sm btn-outline-danger">Delete</a>
                 @endcan
             </div>
-        </div>
+        </article>
 
-        <ul class="list-group mt-4">
+        <ul class="list-group comments-list mt-4">
             <li class="list-group-item active">
                 Comments ({{ count($article->comments) }})
             </li>
@@ -39,7 +39,7 @@
                         <a href="{{ url("/comments/delete/$comment->id") }}" class="btn-close float-end"></a>
                     @endcan
 
-                    <b class="text-success">{{ $comment->user->name }}</b> -
+                    <a href="{{ url("/users/{$comment->user->id}") }}" class="text-success fw-bold text-decoration-none">{{ $comment->user->name }}</a> -
                     {{ $comment->content }}
                 </li>
             @endforeach

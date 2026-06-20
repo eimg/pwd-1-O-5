@@ -11,13 +11,14 @@
             </div>
         @endif
 
-        <form action="{{ url("/articles/create") }}" method="post">
+        <form action="{{ url("/articles/create") }}" method="post" enctype="multipart/form-data">
             @csrf
-            <input type="text" class="form-control mb-2" name="title" placeholder="Title">
-            <textarea name="body" placeholder="body" class="form-control mb-2"></textarea>
+            <input type="text" class="form-control mb-2" name="title" placeholder="Title" value="{{ old("title") }}">
+            <input type="file" class="form-control mb-2" name="feature_image" accept="image/*">
+            @include("articles._markdown_editor", ["name" => "body", "value" => old("body")])
             <select name="category_id" class="form-select mb-2">
                 @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">
+                    <option value="{{ $category->id }}" @selected(old("category_id") == $category->id)>
                         {{ $category->name }}
                     </option>
                 @endforeach

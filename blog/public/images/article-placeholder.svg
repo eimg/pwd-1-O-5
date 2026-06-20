@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+    <title id="title">Article placeholder</title>
+    <desc id="desc">A minimal placeholder image for articles without an uploaded feature image.</desc>
+    <rect width="1200" height="675" fill="#f8fafc"/>
+    <rect x="92" y="92" width="1016" height="491" rx="20" fill="none" stroke="#cbd5e1" stroke-width="8"/>
+    <circle cx="600" cy="292" r="62" fill="#cbd5e1"/>
+    <path d="M420 454h360l-118-134-78 86-48-52z" fill="#cbd5e1"/>
+</svg>

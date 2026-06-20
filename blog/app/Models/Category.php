@@ -9,4 +9,9 @@ class Category extends Model
 {
     /** @use HasFactory<\Database\Factories\CategoryFactory> */
     use HasFactory;
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
 }
